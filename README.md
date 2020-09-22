@@ -10,7 +10,7 @@ By contributing to this project you agree to the Developer Certificate of Origin
 # Reporting Bugs
 
 Before creating bug reports, please check a list of known issues to see if the
-problem has already reported (or fixed in a `master` branch).
+problem has already been reported (or fixed in a `master` branch).
 
 If you're unable to find an open issue addressing the problem, open a new one.
 Be sure to include a **descriptive title and a clear description**. Ideally, please
