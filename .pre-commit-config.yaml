@@ -1,14 +1,14 @@
 # HOWTO: https://pre-commit.com/#usage
 # pip3 install pre-commit
-# pre-commit install
+# pre-commit install -t pre-commit -t pre-push
 
 repos:
-  - repo: https://github.com/prettier/prettier
-    rev: 2.1.2
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.2.1
     hooks:
       - id: prettier
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v3.3.0
     hooks:
       - id: check-merge-conflict
       - id: detect-private-key
@@ -18,3 +18,4 @@ repos:
       - id: check-rebase
         args:
           - git://github.com/packit/contributing.git
+        stages: [manual, push]
