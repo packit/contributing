@@ -81,7 +81,7 @@ When you are contributing to changelog, please follow these suggestions:
 There's a [pre-commit](https://pre-commit.com) config file in [.pre-commit-config.yaml](.pre-commit-config.yaml).
 To [utilize pre-commit](https://pre-commit.com/#usage), install pre-commit with `pip3 install pre-commit` and then either:
 
-- `pre-commit install` - to install pre-commit into your [git hooks](https://githooks.com). pre-commit will from now on run all the checkers/linters/formatters on every commit. If you later want to commit without running it, just run `git commit` with `-n/--no-verify`.
+- `pre-commit install -t pre-commit -t pre-push` - to install pre-commit into your [git hooks](https://githooks.com). pre-commit will from now on run all the checkers/linters/formatters on every commit. If you later want to commit without running it, just run `git commit` with `-n/--no-verify`.
 - Or if you want to manually run all the checkers/linters/formatters, run `pre-commit run --all-files`.
 
 ### Git workflow
@@ -110,6 +110,26 @@ For more info regarding rebasing and merging see:
 
 ##### pre-commit git hook and rebasing
 
+We have switched our rebase checks from pre-commit hook to pre-push hook, so the
+problem and possible solutions described below should not be relevant anymore.
+
+In case you have encountered any problems we recommend following new installation
+instructions:
+
+```sh
+$ pre-commit install -t pre-commit -t pre-push
+```
+
+And in case you have already installed pre-commit as git hooks **before** we
+switched, we recommend you to try following to reinstall them:
+
+```sh
+$ pre-commit install -t pre-commit -t pre-push -f
+```
+
+<details>
+<summary>Rebase to commit, but commit to rebase</summary>
+
 In case you have installed pre-commit as a git hook and you want to commit changes,
 you might encounter a problem when you need to rebase your branch, but to do that
 you need to commit changes. [Closer info](https://github.com/packit/pre-commit-hooks/issues/2).
@@ -124,6 +144,8 @@ To resolve this issue there are 3 options:
 
 We recommend 3rd option, for the 1st it's easy to forget to rebase afterwards and
 for the 2nd you can additionally fail other checks.
+
+</details>
 
 #### Examples of git history
 
