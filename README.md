@@ -79,7 +79,14 @@ When you are contributing to changelog, please follow these suggestions:
 ### `pre-commit`
 
 There's a [pre-commit](https://pre-commit.com) config file in [.pre-commit-config.yaml](.pre-commit-config.yaml).
-To [utilize pre-commit](https://pre-commit.com/#usage), install pre-commit with `pip3 install pre-commit` and then either:
+
+You need to install pre-commit to [utilize](https://pre-commit.com/#usage) it locally on your workstation, either from your distribution
+
+    dnf install pre-commit
+
+or from PyPI:
+
+    pip3 install pre-commit
 
 - `pre-commit install -t pre-commit -t pre-push` - to install pre-commit into your [git hooks](https://githooks.com). pre-commit will from now on run all the checkers/linters/formatters on every commit. If you later want to commit without running it, just run `git commit` with `-n/--no-verify`.
 - Or if you want to manually run all the checkers/linters/formatters, run `pre-commit run --all-files`.
