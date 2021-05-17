@@ -10,7 +10,7 @@ By contributing to this project you agree to the Developer Certificate of Origin
 # Reporting Bugs
 
 Before creating bug reports, please check a list of known issues to see if the
-problem has already been reported (or fixed in a `master` branch).
+problem has already been reported (or fixed in a `main` branch).
 
 If you're unable to find an open issue addressing the problem, open a new one.
 Be sure to include a **descriptive title and a clear description**. Ideally, please
@@ -69,7 +69,7 @@ When you are contributing to changelog, please follow these suggestions:
 - Follow git workflow (see [below](#git-workflow))
 - Cover new code with a test case (new or existing one).
 - All tests have to pass.
-- Create a PR against the `master` branch.
+- Create a PR against the `main` branch.
 - The `mergeit` label:
   - Is used to instruct CI and/or reviewer that you're really done with the PR.
   - PRs are merged if they have `mergeit` label **AND** are approved.
