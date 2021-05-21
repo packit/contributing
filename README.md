@@ -10,7 +10,7 @@ By contributing to this project you agree to the Developer Certificate of Origin
 # Reporting Bugs
 
 Before creating bug reports, please check a list of known issues to see if the
-problem has already been reported (or fixed in a `master` branch).
+problem has already been reported (or fixed in a `main` branch).
 
 If you're unable to find an open issue addressing the problem, open a new one.
 Be sure to include a **descriptive title and a clear description**. Ideally, please
@@ -69,7 +69,7 @@ When you are contributing to changelog, please follow these suggestions:
 - Follow git workflow (see [below](#git-workflow))
 - Cover new code with a test case (new or existing one).
 - All tests have to pass.
-- Create a PR against the `master` branch.
+- Create a PR against the `main` branch.
 - The `mergeit` label:
   - Is used to instruct CI and/or reviewer that you're really done with the PR.
   - PRs are merged if they have `mergeit` label **AND** are approved.
@@ -218,6 +218,86 @@ To make sure our code is [PEP8](https://www.python.org/dev/peps/pep-0008/) compl
 - [pyupgrade to upgrade syntax](https://github.com/asottile/pyupgrade)
 
 They are included as pre-commit tasks if necessary.
+
+### Docstrings
+
+Historically docstrings in Packit-projects were written in Sphinx-style (aka
+[reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/)).
+
+In order to improve readability, and make the writing of docstrings easier,
+all projects are transitioning to use [Google-style
+docstrings](https://google.github.io/styleguide/pyguide.html#381-docstrings).
+Docstrings for new code should be written in this later format. The two
+formats should never be mixed within the same docstring.
+
+#### Examples for Google-style docstrings
+
+Functions, arguments, return values, errors raised:
+
+```python
+def check_subpath(
+    subpath: Path, path: Path, ensure_trailing_slash: bool = False
+) -> str:
+    """Check if 'subpath' is a subpath of 'path'
+
+    Args:
+        subpath: Subpath to be checked.
+        path: Path agains which subpath is checked.
+
+    Returns:
+        'subpath', resolved, in case it is a subpath of 'path'.
+
+    Raises:
+        PackitException, if 'subpath' is not a subpath of 'path'.
+    """
+```
+
+Generators:
+
+```python
+def iter_srcs(synced_files: Sequence[SyncFilesItem]) -> Iterator[str]:
+    """Iterate over all the src-s in a list of SyncFilesItem
+
+    Args:
+        synced_files: List of SyncFilesItem.
+
+    Yields:
+        src-s from every SyncFilesItem, one by one.
+    """
+```
+
+Classes:
+
+- Document attributes.
+- If `__init__` args are the same as attributes, don't write a docstring for
+  it.
+- `self` doesn't need to be documented as an arg for methods.
+
+```python
+class SyncFilesItem:
+    """Some files to sync to destination
+
+    Think about this as a wrapper around 'rsync'.
+
+    Attributes:
+        src: List of paths to sync.
+        dest: Destination to sync to.
+        mkpath: Create the destination's path component.
+        delete: Delete extra files from dest dirs.
+        filters: List of rsync filters used for syncing.
+    """
+
+    def __init__(
+        self,
+        src: Sequence[Union[str, Path]],
+        dest: Union[str, Path],
+        mkpath: bool = False,
+        delete: bool = False,
+        filters: Optional[List[str]] = None,
+    ):
+        # pathlib.Path has no support for trailing slashes, but
+
+```
 
 ---
 
