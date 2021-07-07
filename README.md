@@ -93,6 +93,7 @@ or from PyPI:
 
 ### Git workflow
 
+- If you are new to git, check the git basics [here](./git-basics.md).
 - Write reasonable commit messages (See [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)).
 - Use common sense when creating commits, not too big, not too small.
   You can also squash them at the end of review. Try to think about the reviewer
