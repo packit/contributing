@@ -95,6 +95,9 @@ or from PyPI:
 
 - If you are new to git, check the git basics [here](./git-basics.md).
 - Write reasonable commit messages (See [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)).
+  - Please provide the reason or motivation for the introduced change in the body of the
+    commit message, or reference an issue. This is going to be helpful in the future to
+    understand _why_ the change was made.
 - Use common sense when creating commits, not too big, not too small.
   You can also squash them at the end of review. Try to think about the reviewer
   going through the pull request and commits. For example don't make too many changes
