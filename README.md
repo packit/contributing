@@ -38,7 +38,15 @@ It's a quick read, and it's a great way to introduce yourself to how things work
 
 ## Dependencies
 
-If you are introducing a new dependency, please make sure it's added to:
+The **python3-devel**, **krb5-devel** and **gcc** packages are needed in order to be able to
+
+`pip3 install packitos`
+
+On Fedora you can install them like this:
+
+`sudo dnf install python3-devel krb5-devel gcc`
+
+If you are introducing a new python dependency, please make sure it's added to:
 
 - `setup.cfg`
 
