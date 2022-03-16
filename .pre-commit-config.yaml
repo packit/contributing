@@ -17,5 +17,5 @@ repos:
     hooks:
       - id: check-rebase
         args:
-          - git://github.com/packit/contributing.git
+          - https://github.com/packit/contributing.git
         stages: [manual, push]
