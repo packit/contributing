@@ -4,16 +4,16 @@
 
 repos:
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.5.1
+    rev: v3.0.0-alpha.6
     hooks:
       - id: prettier
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.4.0
     hooks:
       - id: check-merge-conflict
       - id: detect-private-key
   - repo: https://github.com/packit/pre-commit-hooks
-    rev: b05e5e2196b725c98529c5c3861658ebcbf18783
+    rev: v1.0.0
     hooks:
       - id: check-rebase
         args:
