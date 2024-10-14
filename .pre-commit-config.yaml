@@ -8,7 +8,7 @@ repos:
     hooks:
       - id: prettier
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-merge-conflict
       - id: detect-private-key
@@ -18,4 +18,4 @@ repos:
       - id: check-rebase
         args:
           - https://github.com/packit/contributing.git
-        stages: [manual, push]
+        stages: [manual, pre-push]
